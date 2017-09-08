@@ -45,8 +45,8 @@
 # II.# Load subjects and merge them (using rbind function), subjects order
 # correspond with measurments from main data sets (see above data_all)
     
-subject_test <- data.table(read.table("./test/subject_test.txt", fill = FALSE))
-subject_train <- data.table(read.table("./train/subject_train.txt", fill = FALSE))
+    subject_test <- data.table(read.table("./test/subject_test.txt", fill = FALSE))
+    subject_train <- data.table(read.table("./train/subject_train.txt", fill = FALSE))
     # ncol = 1
     # nrow = 2947 test and 7352 train subjects who performed measurment (all rows 10299)
 
@@ -58,8 +58,8 @@ subject_train <- data.table(read.table("./train/subject_train.txt", fill = FALSE
 # correspond with measurments from main data sets (see above data_all),
 # next activity labels have to assign to relevant act. numbers
 
-activity_numbers_test <- data.table(read.table("./test/y_test.txt", fill = FALSE))
-activity_numbers_train <- data.table(read.table("./train/y_train.txt", fill = FALSE))
+    activity_numbers_test <- data.table(read.table("./test/y_test.txt", fill = FALSE))
+    activity_numbers_train <- data.table(read.table("./train/y_train.txt", fill = FALSE))
     # ncol = 1
     # nrow = 2947 test and 7352 train activity numbers (6 unique values from 1 to 6; all rows 10299)
     
@@ -71,7 +71,7 @@ activity_numbers_train <- data.table(read.table("./train/y_train.txt", fill = FA
 # IV.# Feature labels is loaded. Number of rows correspond with number of columns
 # in main data set (data_all). It has to be assigned.
 
-features_labels <- data.table(read.table("./features.txt", fill = FALSE))
+    features_labels <- data.table(read.table("./features.txt", fill = FALSE))
     # ncol = 2 (numbers and feature labels)
     # nrow = 561 feature labels
     
@@ -88,7 +88,7 @@ features_labels <- data.table(read.table("./features.txt", fill = FALSE))
     
 # V. # Activity labels is loaded - please follow above section no. III
 
-activity_labels <- data.table(read.table("./activity_labels.txt", fill = FALSE))
+    activity_labels <- data.table(read.table("./activity_labels.txt", fill = FALSE))
     # ncol = 2 (numbers and activity labels)
     # nrow = 6 activity labels
 
@@ -97,7 +97,7 @@ activity_labels <- data.table(read.table("./activity_labels.txt", fill = FALSE))
     # activity numbers from 1 to 6 -> in second data set is only 6 rows with relevant
     # activity description in the second column). AtTribute 'by=' define what column will be used
     # to accordingly assign values from one column to the another one
-activities_all <- full_join(activity_numbers_all, activity_labels, by="V1")
+    activities_all <- full_join(activity_numbers_all, activity_labels, by="V1")
     # ncol = 2 ("ActNum" and "ActName")
     # nrow = 10299 activites (only labels for relevant measures)
 
