@@ -42,8 +42,7 @@
     data_all <- rbind(data_test, data_train)
     rm(data_test, data_train)
     
-# II.# Load subjects and merge them (using rbind function), subjects order
-# correspond with measurments from main data sets (see above data_all)
+# II.# Load subjects and merge them (using rbind function), subjects order correspond with measurments from main data sets (see above data_all)
     
     subject_test <- data.table(read.table("./test/subject_test.txt", fill = FALSE))
     subject_train <- data.table(read.table("./train/subject_train.txt", fill = FALSE))
@@ -54,9 +53,7 @@
     rm(subject_test, subject_train)
     setnames(subject_all, "V1", "SubjectName")
     
-# III.# Load activity numbers and merge them (using rbind function), activity numbers order
-# correspond with measurments from main data sets (see above data_all),
-# next activity labels have to assign to relevant act. numbers
+# III.# Load activity numbers and merge them (using rbind function), activity numbers order correspond with measurments from main data sets (see above data_all), next activity labels have to assign to relevant act. numbers
 
     activity_numbers_test <- data.table(read.table("./test/y_test.txt", fill = FALSE))
     activity_numbers_train <- data.table(read.table("./train/y_train.txt", fill = FALSE))
@@ -68,8 +65,7 @@
     
 #===============================Common data sets===============================
 
-# IV.# Feature labels is loaded. Number of rows correspond with number of columns
-# in main data set (data_all). It has to be assigned.
+# IV.# Feature labels is loaded. Number of rows correspond with number of columns in main data set (data_all). It has to be assigned.
 
     features_labels <- data.table(read.table("./features.txt", fill = FALSE))
     # ncol = 2 (numbers and feature labels)
@@ -116,12 +112,12 @@
     # (only one extra column of type double is allocated). 
     # Keying a data.table physically reorders it based on those column(s) in RAM.
 
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
-    # THIS PART IS VERY IMPORTANT:
-    #   1. FIRST WE HAVE TO SET KEY (3 COLUMNS) 
-    #   2. WE USE KEYs IN MELT FUNCTION AND ALSO COLUMN "Code" TO SHAPE NEW DATA SET
-    #   3. USE View(data_all) before and after the operation
-#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    
+        # THIS PART IS VERY IMPORTANT:
+        #   1. FIRST WE HAVE TO SET KEY (3 COLUMNS) 
+        #   2. WE USE KEYs IN MELT FUNCTION AND ALSO COLUMN "Code" TO SHAPE NEW DATA SET
+        #   3. USE View(data_all) before and after the operation
+    #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     setkey(data_all, SubjectName, ActNum, ActName)
     data_all <- data.table(melt(data_all, key(data_all), variable.name = "Code"))
     data_all <- full_join(data_all, features_labels, by="Code")
