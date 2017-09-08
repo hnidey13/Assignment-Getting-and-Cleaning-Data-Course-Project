@@ -176,4 +176,6 @@ activities_all <- full_join(activity_numbers_all, activity_labels, by="V1")
     knit(input = "./run_analysis.R", output = "./Codebook.md", encoding="ISO8859-1", quiet = T)
     library(markdown)
     markdownToHTML("./Codebook.md", "./Codebook.html")
+
+    write.table(data_all_tidy, "./Data_Tidy.txt", sep = "\t", row.names = FALSE)
     
