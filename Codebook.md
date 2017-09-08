@@ -13,25 +13,25 @@
 
 # I.# Load main data sets and merge them (using rbind function)
 
-path <- getwd()
-url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-f <- "Dataset.zip"
-if (!file.exists(path)) {
-    dir.create(path)
-}
-download.file(url, file.path(path, f))
-executable <- file.path("C:", "Program Files", "7-Zip", "7z.exe")
-parameters <- "x"
-cmd <- paste(paste0("\"", executable, "\""), parameters, paste0("\"", file.path(path, f), "\""))
-system(cmd)
-pathIn <- file.path(path, "UCI HAR Dataset")
+    path <- getwd()
+    url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+    f <- "Dataset.zip"
+    if (!file.exists(path)) {
+        dir.create(path)
+    }
+    download.file(url, file.path(path, f))
+    executable <- file.path("C:", "Program Files", "7-Zip", "7z.exe")
+    parameters <- "x"
+    cmd <- paste(paste0("\"", executable, "\""), parameters, paste0("\"", file.path(path, f), "\""))
+    system(cmd)
+    pathIn <- file.path(path, "UCI HAR Dataset")
 
-setwd(pathIn)
-list.files(pathIn, recursive = TRUE)
+    setwd(pathIn)
+    list.files(pathIn, recursive = TRUE)
 
-library(data.table)
-#library(plyr) currently not used
-library(dplyr)
+    library(data.table)
+        #library(plyr) currently not used
+    library(dplyr)
 
 data_test <- data.table(read.table("./test/X_test.txt", fill = FALSE)) 
 data_train <- data.table(read.table("./train/X_train.txt", fill = FALSE)) 
