@@ -1,16 +1,7 @@
 #=============================================================================
 #
-# The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set.
-# Status of the Project
 #
-# Done -> 1. The submitted data set is tidy.
-# Done -> 2. The Github repo contains the required scripts.
-# Done -> 3. GitHub contains a code book that modifies and updates the available codebooks with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
-# Done -> 4. The README that explains the analysis files is clear and understandable.
-# Done -> 5. The work submitted for this project is the work of the student who submitted it.
-#
-#
-# Done -> 1. TMerges the training and the test sets to create one data set.
+# Done -> 1. Merges the training and the test sets to create one data set.
 # Done -> 2. Extracts only the measurements on the mean and standard deviation for each measurement.
 # Done -> 3. Uses descriptive activity names to name the activities in the data set
 # Done -> 4. Appropriately labels the data set with descriptive variable names.
