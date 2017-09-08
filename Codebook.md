@@ -6,13 +6,6 @@
 # Done -> 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 #=============================================================================
 
-
-
-
-#===================================Test and Train data sets===================
-
-# I.# Load main data sets and merge them (using rbind function)
-
     path <- getwd()
     url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
     f <- "Dataset.zip"
@@ -33,8 +26,15 @@
         #library(plyr) currently not used
     library(dplyr)
 
-data_test <- data.table(read.table("./test/X_test.txt", fill = FALSE)) 
-data_train <- data.table(read.table("./train/X_train.txt", fill = FALSE)) 
+
+#===================================Test and Train data sets===================
+
+# I.# Load main data sets and merge them (using rbind function)
+
+
+
+    data_test <- data.table(read.table("./test/X_test.txt", fill = FALSE)) 
+    data_train <- data.table(read.table("./train/X_train.txt", fill = FALSE)) 
     # Convert the resulting data frame to a data table (data table is faster than d.f.)
     # ncol = 561
     # nrow = 2947 test and 7352 train (all rows 10299)
