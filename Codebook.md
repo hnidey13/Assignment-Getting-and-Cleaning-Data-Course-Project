@@ -7,6 +7,12 @@
 #=============================================================================
 
 
+
+
+#===================================Test and Train data sets===================
+
+# I.# Load main data sets and merge them (using rbind function)
+
 path <- getwd()
 url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 f <- "Dataset.zip"
@@ -26,10 +32,6 @@ list.files(pathIn, recursive = TRUE)
 library(data.table)
 #library(plyr) currently not used
 library(dplyr)
-
-#===================================Test and Train data sets===================
-
-# I.# Load main data sets and merge them (using rbind function)
 
 data_test <- data.table(read.table("./test/X_test.txt", fill = FALSE)) 
 data_train <- data.table(read.table("./train/X_train.txt", fill = FALSE)) 
